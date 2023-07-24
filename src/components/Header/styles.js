@@ -15,24 +15,25 @@ export const StyledHeader = styled('section')(({ theme }) => ({
 }));
 
 export const StyledAppBar = styled(AppBar)(({ theme }) => ({
+  borderRadius: '0 0 15px 15px',
+  background: '#ffa502',
+  width: '100%',
+  height: 'auto',
   zIndex: 9999999,
   boxShadow: 'none',
   background: 'transparent',
   position: 'relative',
   display: 'flex',
-  flexDirection: 'row',
-  justifyContent: 'space-beetwen',
-  alignItems: 'center',
+  flexDirection: 'column',
+  justifyContent: 'space-between',
+  alignItems: 'start',
   margin: 'auto',
-  [theme.breakpoints.up('sm')]: {
-    height: '120px',
-    width: '100%',
-    justifyContent: 'space-beetwen',
-    flexWrap: 'wrap',
-  },
+
   [theme.breakpoints.up('md')]: {
     width: '100%',
+    flexDirection: 'row',
     justifyContent: 'space-around',
+    alignItems: 'center',
     flexWrap: 'nowrap',
   },
   [theme.breakpoints.up('lg')]: {
@@ -46,17 +47,13 @@ export const StyledAppBar = styled(AppBar)(({ theme }) => ({
 
 export const StyledLogoWrapper = styled('a')(({ theme }) => ({
   display: 'block',
-  height: '10%',
-  width: '30%',
-  [theme.breakpoints.up('sm')]: {
-    height: '40%',
-  },
+  height: '40px',
+  padding: '15px',
+  width: '100%',
   [theme.breakpoints.up('md')]: {
-    height: '50%',
+    maxWidth: '150px',
   },
-  [theme.breakpoints.up('lg')]: {
-    height: '70%',
-  },
+  [theme.breakpoints.up('lg')]: {},
 }));
 
 export const StyledSearch = styled('div')(({ theme }) => ({
@@ -69,19 +66,16 @@ export const StyledSearch = styled('div')(({ theme }) => ({
   color: 'black',
   marginRight: theme.spacing(2),
   marginLeft: theme.spacing(2),
-  display: 'block',
-  [theme.breakpoints.up('sm')]: {
-    width: '100%',
-  },
-  [theme.breakpoints.up('md')]: {
-    width: '40%',
+  display: 'flex',
+  width: '100%',
+  [theme.breakpoints.up('lg')]: {
+    width: '35%',
   },
 }));
 
 export const StyledSearchIconWrapper = styled('div')(({ theme }) => ({
   padding: theme.spacing(0, 2),
   height: '100%',
-  position: 'absolute',
   pointerEvents: 'none',
   display: 'flex',
   alignItems: 'center',
@@ -135,6 +129,8 @@ export const StyledLogo = styled('img')(({ theme }) => ({
 
 export const NavContent = styled('div')(({ theme }) => ({
   [theme.breakpoints.up('lg')]: {
+    display: 'flex',
+    alignItems: 'center',
     width: '100%',
   },
 }));
@@ -187,18 +183,48 @@ export const NavWrapper = styled('div')(({ theme }) => ({
   },
 }));
 
+export const StyledNavItems = styled('div')(({ theme }) => ({
+  display: 'flex',
+  flexDirection: 'row-reverse',
+  width: '100%',
+  [theme.breakpoints.up('md')]: {
+    flexDirection: 'row-reverse',
+  },
+  [theme.breakpoints.up('lg')]: {
+    justifyContent: 'space-between',
+  },
+}));
+
+export const StyledNavIcons = styled('div')(({ theme }) => ({
+  display: 'flex',
+  position: 'fixed',
+  justifyContent: 'flex-end',
+  right: 15,
+  top: 15,
+  width: '100%',
+  [theme.breakpoints.up('md')]: {
+    position: 'relative',
+    right: 'auto',
+    top: 'auto',
+  },
+}));
+
 export const NavBox = styled('nav')(({ isOpen }) => ({ theme }) => ({
   // display: isOpen ? 'none' : 'block',
-  transform: isOpen ? 'translateX(0.3%)' : 'translateX(100.3%)',
+  transform: isOpen
+    ? 'translateX(calc(0.3% + 15px))'
+    : 'translateX(calc(100.3% + 15px))',
   background: '#a229f2',
+  height: '100vh',
   position: 'absolute',
   zIndex: 999999,
-  top: 0,
+  top: -15,
   right: 0,
   width: '60%',
   transition: '0.3s',
   display: 'flex',
   [theme.breakpoints.up('lg')]: {
+    top: 'auto',
     position: 'relative',
     background: 'none',
     height: 'auto',
@@ -214,7 +240,6 @@ export const HamburgerBox = styled('div')(({ theme }) => ({
   alignItems: 'center',
   justifyContent: 'end',
   marginTop: 12,
-  // border: '2px solid red',
   [theme.breakpoints.up('lg')]: {
     display: 'none',
   },

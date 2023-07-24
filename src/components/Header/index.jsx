@@ -21,6 +21,8 @@ import {
   StyledNotificationsIcon,
   StyledSiteLogo,
   StyledHeader,
+  StyledNavItems,
+  StyledNavIcons,
 } from './styles';
 import Badge from '@mui/material/Badge';
 import logo from '../../images/streetRage.svg';
@@ -57,23 +59,25 @@ export const Header = () => {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <StyledHeader>
-        <StyledAppBar>
-          <StyledLogoWrapper>
-            <StyledLogo src={logo} alt='' />
-          </StyledLogoWrapper>
-          <NavWrapper />
-          <StyledNoti>
-            <IconButton
-              size='large'
-              aria-label='show 17 new notifications'
-              color='inherit'
-            >
-              <Badge badgeContent={1} color='error'>
-                <StyledNotificationsIcon sx={{ fontSize: '30px' }} />
-              </Badge>
-            </IconButton>
-          </StyledNoti>
+      <StyledAppBar className='dsa'>
+        <StyledLogoWrapper>
+          <StyledLogo src={logo} alt='' />
+        </StyledLogoWrapper>
+        <StyledNavItems>
+          <StyledNavIcons className='asd'>
+            <NavWrapper />
+            <StyledNoti>
+              <IconButton
+                size='large'
+                aria-label='show 17 new notifications'
+                color='inherit'
+              >
+                <Badge badgeContent={1} color='error'>
+                  <StyledNotificationsIcon sx={{ fontSize: '30px' }} />
+                </Badge>
+              </IconButton>
+            </StyledNoti>
+          </StyledNavIcons>
           <StyledSearch>
             <StyledSearchIconWrapper>
               <SearchIcon />
@@ -83,8 +87,8 @@ export const Header = () => {
               inputProps={{ 'aria-label': 'search' }}
             />
           </StyledSearch>
-        </StyledAppBar>
-      </StyledHeader>
+        </StyledNavItems>
+      </StyledAppBar>
       <Menu
         anchorEl={mobileMoreAnchorEl}
         anchorOrigin={{
