@@ -23,11 +23,19 @@ import {
   StyledHeader,
   StyledNavItems,
   StyledNavIcons,
+  StyledBoxSelect,
 } from './styles';
 import Badge from '@mui/material/Badge';
 import logo from '../../images/streetRage.svg';
+import { Link } from 'react-router-dom';
 
 export const Header = () => {
+  const [category, setCategory] = React.useState('');
+
+  const handleChange = (event) => {
+    setCategory(event.target.value);
+  };
+
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -37,46 +45,28 @@ export const Header = () => {
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
   };
-
   const handleMobileMenuClose = () => {
     setMobileMoreAnchorEl(null);
   };
-
   const handleMenuClose = () => {
     setAnchorEl(null);
     handleMobileMenuClose();
   };
-
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
-
   const menuId = 'primary-search-account-menu';
-
-  // Phone
-
-  const mobileMenuId = 'primary-search-account-menu-mobile';
 
   return (
     <Box sx={{ flexGrow: 1 }}>
+      {/* <StyledHeader> */}
       <StyledAppBar className='dsa'>
-        <StyledLogoWrapper>
+        <StyledLogoWrapper to='/'>
           <StyledLogo src={logo} alt='' />
         </StyledLogoWrapper>
         <StyledNavItems>
-          <StyledNavIcons className='asd'>
+          <StyledNavIcons>
             <NavWrapper />
-            <StyledNoti>
-              <IconButton
-                size='large'
-                aria-label='show 17 new notifications'
-                color='inherit'
-              >
-                <Badge badgeContent={1} color='error'>
-                  <StyledNotificationsIcon sx={{ fontSize: '30px' }} />
-                </Badge>
-              </IconButton>
-            </StyledNoti>
           </StyledNavIcons>
           <StyledSearch>
             <StyledSearchIconWrapper>
@@ -89,39 +79,7 @@ export const Header = () => {
           </StyledSearch>
         </StyledNavItems>
       </StyledAppBar>
-      <Menu
-        anchorEl={mobileMoreAnchorEl}
-        anchorOrigin={{
-          vertical: 'top',
-          horizontal: 'right',
-        }}
-        id={mobileMenuId}
-        keepMounted
-        transformOrigin={{
-          vertical: 'top',
-          horizontal: 'right',
-        }}
-        open={isMobileMenuOpen}
-        onClose={handleMobileMenuClose}
-      ></Menu>
-      <Menu
-        anchorEl={anchorEl}
-        anchorOrigin={{
-          vertical: 'top',
-          horizontal: 'right',
-        }}
-        id={menuId}
-        keepMounted
-        transformOrigin={{
-          vertical: 'top',
-          horizontal: 'right',
-        }}
-        open={isMenuOpen}
-        onClose={handleMenuClose}
-      >
-        <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-        <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-      </Menu>
+      {/* </StyledHeader> */}
     </Box>
   );
 };

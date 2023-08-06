@@ -1,31 +1,49 @@
 import React, { useEffect, useState } from 'react';
-import { StyledProductsWrapper, ProductsBox, StyledProduct } from './styles';
+import {
+  StyledProductsWrapper,
+  ProductsBox,
+  StyledProduct,
+  StyledPrice,
+} from './styles';
+import { useLocation } from 'react-router-dom';
 
-export const ProductsList = () => {
+export const ProductsList = ({ category }) => {
   const [promotionItems, setPromotionItems] = useState([]);
+  const pageName = useLocation().pathname.split('/')[1]; // for example: path: /outfits
+
   useEffect(() => {
     const fetchData = async () => {
       const data = await fetch(
-        'http://localhost:1337/api/promotions/?populate=%2A'
+        `http://localhost:1337/api/${category}/?populate=%2A`
       );
       const res = await data.json();
       setPromotionItems(res.data);
     };
+
     fetchData();
-  }, []);
+  }, [pageName]);
+
   console.log(promotionItems);
+
   return (
     <StyledProductsWrapper>
       <ProductsBox>
         {promotionItems.map((item, index) => {
           return (
-            <StyledProduct to={`/product-page/${item.id}`}>
-              <img
-                src={`http://localhost:1337${item.attributes.thumbnail.data.attributes.url}`}
-              />
-              <h2>{item.attributes.title}</h2>
-              <span>{item.attributes.price}</span>
-              <p>{item.attributes.description}</p>
+            <StyledProduct to={`/${pageName}/produkt/${item.id}`} key={index}>
+              {item.attributes.thumbnail.data && (
+                <img
+                  src={`http://localhost:1337${item.attributes.thumbnail.data.attributes.url}`}
+                />
+              )}
+              <section>
+                <h2>{item.attributes.title}</h2>
+                <StyledPrice>
+                  <s>{item.attributes.initialPrice} zł</s>
+                  <h3>{item.attributes.discount} zł</h3>
+                </StyledPrice>
+                <span>Sprawdź okazję</span>
+              </section>
             </StyledProduct>
           );
         })}

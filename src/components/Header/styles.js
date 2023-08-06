@@ -4,31 +4,30 @@ import InputBase from '@mui/material/InputBase';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import NotificationsIcon from '@mui/icons-material/Notifications';
+import { Link } from 'react-router-dom';
 
 import Hamburger from 'hamburger-react';
 
 export const StyledHeader = styled('section')(({ theme }) => ({
   borderRadius: '0 0 15px 15px',
-  background: '#ffa502',
   width: '100%',
+  background: '#ffa502',
   height: 'auto',
 }));
 
 export const StyledAppBar = styled(AppBar)(({ theme }) => ({
   borderRadius: '0 0 15px 15px',
-  background: '#ffa502',
+  background: '#ff3838',
   width: '100%',
   height: 'auto',
-  zIndex: 9999999,
   boxShadow: 'none',
-  background: 'transparent',
   position: 'relative',
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'space-between',
   alignItems: 'start',
   margin: 'auto',
-
+  padding: 10,
   [theme.breakpoints.up('md')]: {
     width: '100%',
     flexDirection: 'row',
@@ -36,29 +35,24 @@ export const StyledAppBar = styled(AppBar)(({ theme }) => ({
     alignItems: 'center',
     flexWrap: 'nowrap',
   },
-  [theme.breakpoints.up('lg')]: {
-    height: '70px',
-    width: '95%',
-  },
+
   [theme.breakpoints.up('xl')]: {
-    width: '90%',
+    width: '100%',
   },
 }));
 
-export const StyledLogoWrapper = styled('a')(({ theme }) => ({
+export const StyledLogoWrapper = styled(Link)(({ theme }) => ({
   display: 'block',
   height: '40px',
   padding: '15px',
-  width: '100%',
+  width: '50%',
   [theme.breakpoints.up('md')]: {
     maxWidth: '150px',
   },
-  [theme.breakpoints.up('lg')]: {},
 }));
 
 export const StyledSearch = styled('div')(({ theme }) => ({
   background: 'rgba(255, 255, 255, 0.4)',
-  boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
   backdropFilter: 'blur(5.5px)',
   '-webkit-backdrop-filter': 'blur(5.5px)',
   borderRadius: '10px',
@@ -68,6 +62,9 @@ export const StyledSearch = styled('div')(({ theme }) => ({
   marginLeft: theme.spacing(2),
   display: 'flex',
   width: '100%',
+  height: 40,
+  position: 'relataive',
+  zIndex: 1,
   [theme.breakpoints.up('lg')]: {
     width: '35%',
   },
@@ -86,8 +83,6 @@ export const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: 'inherit',
   '& .MuiInputBase-input': {
     padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
     transition: theme.transitions.create('width'),
     width: '100%',
     fontSize: '15px',
@@ -125,6 +120,7 @@ export const StyledHamburger = styled(Hamburger)(({ theme }) => ({
 export const StyledLogo = styled('img')(({ theme }) => ({
   width: 'auto',
   height: '100%',
+  [theme.breakpoints.up('sm')]: {},
 }));
 
 export const NavContent = styled('div')(({ theme }) => ({
@@ -137,14 +133,20 @@ export const NavContent = styled('div')(({ theme }) => ({
 
 export const BurgerMenu = styled('div')(({ theme }) => ({
   width: '100%',
-  display: 'block',
+  display: 'flex',
+  flexDirection: 'column',
   justifyContent: 'center',
   alignItems: 'center',
   padding: '50px 0px',
   [theme.breakpoints.up('lg')]: {
-    display: 'flex',
+    columnGap: 20,
     padding: 0,
-    justifyContent: 'start',
+    flexDirection: 'row',
+  },
+  [theme.breakpoints.up('xl')]: {
+    display: 'flex',
+    columnGap: 80,
+    padding: 0,
   },
 }));
 
@@ -153,30 +155,44 @@ export const NavItems = styled('div')({
   display: 'block',
 });
 
-export const SingleItem = styled('div')(({ theme }) => ({
+export const SingleItem = styled(Link)(({ theme }) => ({
   textAlign: 'center',
-  padding: 45,
-  boxShadow: '0 5px 10px 0px rgba(84, 60, 81, 0.25)',
+  padding: 25,
   transition: '.4s',
-  fontSize: 19,
+  fontSize: 16,
   fontWeight: 700,
+  border: '1px solid transparent',
+  margin: '5px 0',
+  textDecoration: 'none',
+  color: 'white',
+  transition: 'border 0.2s',
   '&:hover': {
+    border: '1px solid white',
     cursor: 'pointer',
-    boxShadow: '0 5px 10px 0px rgba(84, 60, 81, 0.5)',
-    color: '#eb3b5a',
+    color: 'white',
   },
+  [theme.breakpoints.up('md')]: { fontSize: 18 },
   [theme.breakpoints.up('lg')]: {
+    '&:hover': {
+      borderTop: '1px solid transparent',
+      borderLeft: '1px solid transparent',
+      borderRight: '1px solid transparent',
+      borderBottom: '1px solid white',
+      cursor: 'pointer',
+      color: 'white',
+    },
     padding: 0,
     margin: '0',
     boxShadow: 'none !important',
     borderRadius: 'none',
     fontSize: 17,
     fontWeight: 600,
-    width: '25%',
   },
 }));
 
 export const NavWrapper = styled('div')(({ theme }) => ({
+  position: 'relative',
+  zIndex: 150,
   width: '50%',
   [theme.breakpoints.up('lg')]: {
     width: '100%',
@@ -185,6 +201,7 @@ export const NavWrapper = styled('div')(({ theme }) => ({
 
 export const StyledNavItems = styled('div')(({ theme }) => ({
   display: 'flex',
+  alignItems: 'center',
   flexDirection: 'row-reverse',
   width: '100%',
   [theme.breakpoints.up('md')]: {
@@ -197,49 +214,60 @@ export const StyledNavItems = styled('div')(({ theme }) => ({
 
 export const StyledNavIcons = styled('div')(({ theme }) => ({
   display: 'flex',
+  // flexDirection: 'row-reverse',
   position: 'fixed',
   justifyContent: 'flex-end',
   right: 15,
   top: 15,
-  width: '100%',
+  zIndex: 2,
+  [theme.breakpoints.up('md')]: {
+    // position: 'relative',
+    right: 'auto',
+    top: 'auto',
+    flexDirection: 'unset',
+    width: '100%',
+  },
   [theme.breakpoints.up('md')]: {
     position: 'relative',
     right: 'auto',
     top: 'auto',
+    flexDirection: 'unset',
+    width: '100%',
   },
 }));
 
 export const NavBox = styled('nav')(({ isOpen }) => ({ theme }) => ({
-  // display: isOpen ? 'none' : 'block',
   transform: isOpen
     ? 'translateX(calc(0.3% + 15px))'
     : 'translateX(calc(100.3% + 15px))',
-  background: '#a229f2',
-  height: '100vh',
-  position: 'absolute',
-  zIndex: 999999,
-  top: -15,
+  background: 'rgb(0 0 0 / 54%)',
+  boxShadow: '0 8px 32px 0 rgba( 31, 38, 135, 0.37 )',
+  backdropFilter: 'blur( 18.5px )',
+  height: '150vh',
+  position: 'fixed',
+  top: -20,
   right: 0,
-  width: '60%',
+  width: '250px',
   transition: '0.3s',
-  display: 'flex',
+  [theme.breakpoints.up('md')]: {
+    width: '100%',
+    width: '450px',
+  },
   [theme.breakpoints.up('lg')]: {
     top: 'auto',
     position: 'relative',
+    boxShadow: 'none',
+    backdropFilter: 'none',
     background: 'none',
     height: 'auto',
-    width: '80%',
     transform: 'none',
     margin: '0 auto',
+    width: 'auto',
   },
 }));
 
 export const HamburgerBox = styled('div')(({ theme }) => ({
-  width: '92%',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'end',
-  marginTop: 12,
+  marginTop: 25,
   [theme.breakpoints.up('lg')]: {
     display: 'none',
   },
@@ -249,15 +277,18 @@ export const ResponsiveHamb = styled('div')(({ theme }) => ({
   [theme.breakpoints.up('sm')]: {
     display: 'flex',
   },
-  [theme.breakpoints.up('md')]: {
-    display: 'flex',
-  },
   [theme.breakpoints.up('lg')]: {
     display: 'none',
   },
 }));
 
-export const StyledBox = styled(Box)({});
+export const StyledBox = styled(Box)({
+  zIndex: 999,
+});
+export const StyledBoxSelect = styled(Box)({
+  height: '10px',
+  position: 'absolute',
+});
 
 // export const StyledHamburger = styled(Hamburger)({
 //   border: '2px solid red !important',

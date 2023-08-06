@@ -10,8 +10,7 @@ import {
   // StyledHamburger,
   ResponsiveHamb,
 } from './styles';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
+
 import Hamburger from 'hamburger-react';
 
 const NavResp = () => {
@@ -39,10 +38,9 @@ const NavResp = () => {
             <StyledHamburger toggled={isOpen} toggle={handleToggle} />
           </HamburgerBox>
           <BurgerMenu>
-            <SingleItem>Strona Główna</SingleItem>
-            <SingleItem>Kody Rabatowe</SingleItem>
-            <SingleItem>Promocje</SingleItem>
-            <SingleItem>Kontakt</SingleItem>
+            <SingleItem to='/'>Strona Główna</SingleItem>
+            <SingleItem to='/odziez'>Odzież</SingleItem>
+            <SingleItem to='/elektronika'>Elektronika</SingleItem>
           </BurgerMenu>
         </NavBox>
       </NavWrapper>

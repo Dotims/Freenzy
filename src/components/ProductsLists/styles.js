@@ -5,6 +5,7 @@ export const StyledProductsWrapper = styled('main')(({ theme }) => ({
   width: '90%',
   margin: '150px auto',
   maxWidth: '1400px',
+
   // border: '1px solid black',
   [theme.breakpoints.up('md')]: {},
   [theme.breakpoints.up('lg')]: {},
@@ -36,23 +37,52 @@ export const StyledProduct = styled(Link)(({ theme }) => ({
   textDecoration: 'none',
   transition: '0.2s',
   minHeight: '350px',
+  color: 'black',
   '&:hover': {
     cursor: 'pointer',
     transform: 'translateY(-5px)',
   },
+  '& section': {
+    padding: '15px',
+  },
+
   '& img': {
     width: '100%',
     objectFit: 'cover',
     height: 250,
   },
-  // border: '1px solid black',
-  // [theme.breakpoints.up('sm')]: {
-  //   backgroundColor: 'green',
-  // },
-  // [theme.breakpoints.up('md')]: {
-  //   backgroundColor: 'red',
-  // },
-  // [theme.breakpoints.up('lg')]: {
-  //   backgroundColor: 'blue',
-  // },
+  '& h2': {
+    textAlign: 'center',
+    fontsize: '20px',
+  },
+  '& h3': {
+    fontsize: '20px',
+  },
+  '& span': {
+    display: 'flex',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    fontweight: '800',
+    width: '70%',
+    textAlign: 'center',
+    color: 'white',
+    background: '#ff3838',
+    padding: '13px',
+    borderRadius: '15px',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+}));
+
+export const StyledPrice = styled('div')(({ theme }) => ({
+  display: 'flex',
+  padding: '15px 0',
+  alignItems: 'center',
+  justifyContent: 'center',
+  '& s': {
+    marginRight: '15px',
+    fontWeight: '700',
+    fontSize: '19px',
+  },
+  '& h3': {},
 }));
