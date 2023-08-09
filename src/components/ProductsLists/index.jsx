@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import {
   StyledProductsWrapper,
   ProductsBox,
   StyledProduct,
   StyledPrice,
-} from './styles';
-import { useLocation } from 'react-router-dom';
+} from "./styles";
+import { useLocation } from "react-router-dom";
 
 export const ProductsList = ({ category }) => {
   const [promotionItems, setPromotionItems] = useState([]);
-  const pageName = useLocation().pathname.split('/')[1]; // for example: path: /outfits
+  const pageName = useLocation().pathname.split("/")[1]; // for example: path: /outfits
 
   useEffect(() => {
     const fetchData = async () => {
@@ -37,11 +37,13 @@ export const ProductsList = ({ category }) => {
                 />
               )}
               <section>
-                <h2>{item.attributes.title}</h2>
-                <StyledPrice>
-                  <s>{item.attributes.initialPrice} zł</s>
-                  <h3>{item.attributes.discount} zł</h3>
-                </StyledPrice>
+                <div>
+                  <h2>{item.attributes.title}</h2>
+                  <StyledPrice>
+                    <s>{item.attributes.initialPrice} zł</s>
+                    <h3>{item.attributes.discount} zł</h3>
+                  </StyledPrice>
+                </div>
                 <span>Sprawdź okazję</span>
               </section>
             </StyledProduct>
