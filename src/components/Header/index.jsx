@@ -1,15 +1,15 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import MenuItem from '@mui/material/MenuItem';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import SearchIcon from '@mui/icons-material/Search';
-import AccountCircle from '@mui/icons-material/AccountCircle';
-import NotificationsIcon from '@mui/icons-material/Notifications';
-import MoreIcon from '@mui/icons-material/MoreVert';
-import NavWrapper from './navResp';
+import * as React from "react";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import IconButton from "@mui/material/IconButton";
+import MenuItem from "@mui/material/MenuItem";
+import Menu from "@mui/material/Menu";
+import MenuIcon from "@mui/icons-material/Menu";
+import SearchIcon from "@mui/icons-material/Search";
+import AccountCircle from "@mui/icons-material/AccountCircle";
+import NotificationsIcon from "@mui/icons-material/Notifications";
+import MoreIcon from "@mui/icons-material/MoreVert";
+import NavWrapper from "./navResp";
 import {
   StyledAppBar,
   StyledInputBase,
@@ -24,13 +24,13 @@ import {
   StyledNavItems,
   StyledNavIcons,
   StyledBoxSelect,
-} from './styles';
-import Badge from '@mui/material/Badge';
-import logo from '../../images/streetRage.svg';
-import { Link } from 'react-router-dom';
+} from "./styles";
+import Badge from "@mui/material/Badge";
+
+import { Link } from "react-router-dom";
 
 export const Header = () => {
-  const [category, setCategory] = React.useState('');
+  const [category, setCategory] = React.useState("");
 
   const handleChange = (event) => {
     setCategory(event.target.value);
@@ -55,14 +55,14 @@ export const Header = () => {
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
-  const menuId = 'primary-search-account-menu';
+  const menuId = "primary-search-account-menu";
 
   return (
     <Box sx={{ flexGrow: 1 }}>
       {/* <StyledHeader> */}
-      <StyledAppBar className='dsa'>
-        <StyledLogoWrapper to='/'>
-          <StyledLogo src={logo} alt='' />
+      <StyledAppBar className="dsa">
+        <StyledLogoWrapper to="/">
+          <StyledLogo src={""} alt="" />
         </StyledLogoWrapper>
         <StyledNavItems>
           <StyledNavIcons>
@@ -73,8 +73,8 @@ export const Header = () => {
               <SearchIcon />
             </StyledSearchIconWrapper>
             <StyledInputBase
-              placeholder='Wyszukaj produktu...'
-              inputProps={{ 'aria-label': 'search' }}
+              placeholder="Wyszukaj produktu..."
+              inputProps={{ "aria-label": "search" }}
             />
           </StyledSearch>
         </StyledNavItems>

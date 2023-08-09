@@ -54,7 +54,7 @@ export const StyledProduct = styled(Link)(({ theme }) => ({
   "& img": {
     width: "100%",
     objectFit: "cover",
-    height: 250,
+    height: 200,
   },
   "& h2": {
     textAlign: "center",
@@ -68,7 +68,8 @@ export const StyledProduct = styled(Link)(({ theme }) => ({
     marginLeft: "auto",
     marginRight: "auto",
     fontweight: "800",
-    width: "70%",
+    // width: "70%",
+    width: 180,
     textAlign: "center",
     color: "white",
     background: "#ff3838",
@@ -76,6 +77,16 @@ export const StyledProduct = styled(Link)(({ theme }) => ({
     borderRadius: "15px",
     alignItems: "center",
     justifyContent: "center",
+  },
+  [theme.breakpoints.up("md")]: {
+    "& img": {
+      height: 300,
+    },
+  },
+  [theme.breakpoints.up("xl")]: {
+    "& img": {
+      height: 250,
+    },
   },
 }));
 
