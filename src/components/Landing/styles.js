@@ -2,9 +2,9 @@ import { styled } from "@mui/material/styles";
 
 export const StyledLandingContainer = styled("main")(({ theme }) => ({
   width: "90%",
-  margin: "100px auto 150px auto",
+  margin: "60px auto 150px auto",
   maxWidth: "1250px",
-  [theme.breakpoints.up("md")]: {},
+  [theme.breakpoints.up("md")]: { margin: "100px auto 150px auto" },
   [theme.breakpoints.up("lg")]: {},
 }));
 
@@ -26,7 +26,7 @@ export const StyledHeroContent = styled("div")(({ theme }) => ({
   flex: 1,
   padding: 25,
   "& > h3": {
-    fontSize: 24,
+    fontSize: 18,
   },
   "& > h2": {
     fontSize: 32,
@@ -44,7 +44,11 @@ export const StyledHeroContent = styled("div")(({ theme }) => ({
     display: "inline-block",
     background: "#ff3838",
   },
-  [theme.breakpoints.up("md")]: {},
+  [theme.breakpoints.up("md")]: {
+    "& > h3": {
+      fontSize: 24,
+    },
+  },
   [theme.breakpoints.up("lg")]: {},
 }));
 

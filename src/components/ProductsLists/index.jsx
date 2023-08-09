@@ -6,6 +6,7 @@ import {
   StyledPrice,
 } from "./styles";
 import { useLocation } from "react-router-dom";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 
 export const ProductsList = ({ category }) => {
   const [promotionItems, setPromotionItems] = useState([]);
@@ -28,27 +29,59 @@ export const ProductsList = ({ category }) => {
   return (
     <StyledProductsWrapper>
       <ProductsBox>
-        {promotionItems.map((item, index) => {
-          return (
-            <StyledProduct to={`/${pageName}/produkt/${item.id}`} key={index}>
-              {item.attributes.thumbnail.data && (
-                <img
-                  src={`http://localhost:1337${item.attributes.thumbnail.data.attributes.url}`}
+        {promotionItems.length ? (
+          promotionItems.map((item, index) => {
+            return (
+              <StyledProduct to={`/${pageName}/produkt/${item.id}`} key={index}>
+                {item.attributes.thumbnail.data && (
+                  <img
+                    src={`http://localhost:1337${item.attributes.thumbnail.data.attributes.url}`}
+                  />
+                )}
+                <section>
+                  <div>
+                    <h2>{item.attributes.title}</h2>
+                    <StyledPrice>
+                      <s>{item.attributes.initialPrice} zł</s>
+                      <h3>{item.attributes.discount} zł</h3>
+                    </StyledPrice>
+                  </div>
+                  <a>Sprawdź okazję</a>
+                </section>
+              </StyledProduct>
+            );
+          })
+        ) : (
+          <>
+            <StyledProduct>
+              <SkeletonTheme baseColor="#ffffff" highlightColor="#e2e2e2">
+                <Skeleton containerClassName="product-card-skeleton" />
+                <Skeleton
+                  containerClassName="product-content-skeleton-text"
+                  count={2}
                 />
-              )}
-              <section>
-                <div>
-                  <h2>{item.attributes.title}</h2>
-                  <StyledPrice>
-                    <s>{item.attributes.initialPrice} zł</s>
-                    <h3>{item.attributes.discount} zł</h3>
-                  </StyledPrice>
-                </div>
-                <span>Sprawdź okazję</span>
-              </section>
+              </SkeletonTheme>
             </StyledProduct>
-          );
-        })}
+            <StyledProduct>
+              <SkeletonTheme baseColor="#ffffff" highlightColor="#e2e2e2">
+                <Skeleton containerClassName="product-card-skeleton" />
+                <Skeleton
+                  containerClassName="product-content-skeleton-text"
+                  count={2}
+                />
+              </SkeletonTheme>
+            </StyledProduct>
+            <StyledProduct>
+              <SkeletonTheme baseColor="#ffffff" highlightColor="#e2e2e2">
+                <Skeleton containerClassName="product-card-skeleton" />
+                <Skeleton
+                  containerClassName="product-content-skeleton-text"
+                  count={2}
+                />
+              </SkeletonTheme>
+            </StyledProduct>
+          </>
+        )}
       </ProductsBox>
     </StyledProductsWrapper>
   );

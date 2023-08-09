@@ -12,6 +12,7 @@ export const StyledProductsWrapper = styled("main")(({ theme }) => ({
 export const ProductsBox = styled("section")(({ theme }) => ({
   display: "grid",
   gridTemplateColumns: "1fr",
+  justifyItems: "center",
   gap: "25px",
   [theme.breakpoints.up("md")]: {
     gridTemplateColumns: "repeat(2, 1fr)",
@@ -27,6 +28,7 @@ export const ProductsBox = styled("section")(({ theme }) => ({
 export const StyledProduct = styled(Link)(({ theme }) => ({
   overflow: "hidden",
   width: "100%",
+  maxWidth: 450,
   background: "rgba(255, 255, 255, 0.5)",
   boxShadow: "0 6px 28px 0 rgba(31, 38, 135, 0.37)",
   backdropFilter: "blur(9px)",
@@ -58,17 +60,13 @@ export const StyledProduct = styled(Link)(({ theme }) => ({
   },
   "& h2": {
     textAlign: "center",
-    fontsize: "20px",
+    fontSize: "18px",
   },
-  "& h3": {
-    fontsize: "20px",
-  },
-  "& span": {
+  "& a": {
     display: "flex",
     marginLeft: "auto",
     marginRight: "auto",
     fontweight: "800",
-    // width: "70%",
     width: 180,
     textAlign: "center",
     color: "white",
@@ -80,7 +78,11 @@ export const StyledProduct = styled(Link)(({ theme }) => ({
   },
   [theme.breakpoints.up("md")]: {
     "& img": {
-      height: 300,
+      height: 200,
+    },
+    "& h2": {
+      textAlign: "center",
+      fontSize: "20px",
     },
   },
   [theme.breakpoints.up("xl")]: {
