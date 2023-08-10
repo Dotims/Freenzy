@@ -2,7 +2,6 @@ import AppBar from "@mui/material/AppBar";
 import { styled } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
 import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import { Link } from "react-router-dom";
 

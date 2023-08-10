@@ -1,14 +1,15 @@
+import { Snackbar } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
 export const StyledProcuctItem = styled("section")(({ theme }) => ({
   width: "90%",
-  margin: "150px auto",
+  margin: "50px auto 150px auto",
   maxWidth: "1250px",
   boxShadow: "0 6px 28px 0 rgba(31, 38, 135, 0.37)",
   borderRadius: 10,
   overflow: "hidden",
-  [theme.breakpoints.up("xxl")]: {
-    width: "100%",
+  [theme.breakpoints.up("xl")]: {
+    margin: "150px auto",
   },
 }));
 
@@ -33,9 +34,16 @@ export const StyledImgProduct = styled("img")(({ theme }) => ({
 }));
 
 export const ProductContent = styled("section")(({ theme }) => ({
-  padding: "25px 30px 0px 30px",
+  padding: "25px 30px 25px 30px",
   position: "relative",
   width: "65%",
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "space-between",
+  "& h1": {
+    fontWeight: 900,
+    fontSize: "20px",
+  },
   "& > h3": {
     color: "#2ecc71",
     fontWeight: 900,
@@ -44,18 +52,18 @@ export const ProductContent = styled("section")(({ theme }) => ({
     color: "#c0392b",
     fontWeight: 900,
   },
-  "& > p:last-of-type": {
-    margin: "0 0 20px 0",
-    textAlign: "end",
-    fontWeight: "bold",
-    position: "absolute",
-    bottom: "0",
-    right: "35px",
+  "& > .date": {
+    textAlign: "right",
   },
   "& > span": {
     color: "orange",
     fontWeight: "600",
     fontSize: "18px",
+  },
+  [theme.breakpoints.up("lg")]: {
+    "& h1": {
+      fontSize: "32px",
+    },
   },
 }));
 
@@ -68,12 +76,11 @@ export const PromoCode = styled("div")(({ theme }) => ({
   display: "flex",
   width: "100%",
   "& > h5, a": {
-    width: "40%",
     textAlign: "center",
     background: "#e6e6e6",
     margin: "25px 10px",
     color: "black",
-    padding: "15px",
+    padding: "15px 25px",
     borderRadius: "25px",
     border: "2px dashed red",
     fontSize: "16px",
@@ -92,5 +99,11 @@ export const PromoCode = styled("div")(({ theme }) => ({
     "&:hover": {
       background: "#db3535",
     },
+  },
+}));
+
+export const StyledSnackbar = styled(Snackbar)(({ theme }) => ({
+  "&.MuiSnackbar-root": {
+    [theme.breakpoints.up("sm")]: {},
   },
 }));

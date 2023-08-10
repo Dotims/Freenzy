@@ -8,14 +8,17 @@ import {
   ProductContent,
   ProductDetails,
   PromoCode,
+  StyledSnackbar,
 } from "./styles";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import { Alert, Snackbar } from "@mui/material";
 
 export const ProductPage = ({ category }) => {
   const { id } = useParams();
 
   const [promotionItem, setPromotionItem] = useState();
+  const [isCopied, setIsCopied] = useState(false);
   const pageName = useLocation().pathname;
 
   useEffect(() => {
@@ -31,19 +34,13 @@ export const ProductPage = ({ category }) => {
 
   console.log("promotionItem: ", promotionItem);
 
-  const [isCopied, setIsCopied] = useState(false);
-
   const handleCopyToClipboard = (text) => {
     navigator.clipboard
       .writeText(text)
       .then(() => {
-        console.log("Skopiowano do schowka: ", text);
         setIsCopied(true);
-
-        // Ukryj komunikat po 3 sekundach
-        setTimeout(() => {
-          setIsCopied(false);
-        }, 3000);
+        console.log("Skopiowano do schowka: ", text);
+        // ...
       })
       .catch((error) => {
         console.error("Błąd przy kopiowaniu do schowka: ", error);
@@ -61,27 +58,42 @@ export const ProductPage = ({ category }) => {
           </WrapperProductImg>
 
           <ProductContent>
-            <h1>{promotionItem.attributes.title}</h1>
-            <h4>
-              <s>{promotionItem.attributes.initialPrice} zł</s>
-            </h4>
-            <h3>{promotionItem.attributes.discount} zł</h3>
-            <p>{promotionItem.attributes.description}</p>
-            <PromoCode>
-              <h5
-                onClick={() => {
-                  const promoCode = promotionItem.attributes.PromoCode;
-                  handleCopyToClipboard(promoCode);
+            <div>
+              <h1>{promotionItem.attributes.title}</h1>
+              <h4>
+                <s>{promotionItem.attributes.initialPrice} zł</s>
+              </h4>
+              <h3>{promotionItem.attributes.discount} zł</h3>
+              <p>{promotionItem.attributes.description}</p>
+              <PromoCode>
+                <h5
+                  onClick={() => {
+                    const promoCode = promotionItem.attributes.PromoCode;
+                    handleCopyToClipboard(promoCode);
+                  }}
+                >
+                  {promotionItem.attributes.promoCode}
+                </h5>
+                <a href={promotionItem.attributes.website} target="_blank">
+                  przejdź na stronę
+                </a>
+              </PromoCode>
+              <StyledSnackbar
+                anchorOrigin={{
+                  open: false,
+                  vertical: "bottom",
+                  horizontal: "right",
                 }}
+                open={isCopied}
+                autoHideDuration={6000}
+                onClose={() => setIsCopied(false)}
               >
-                {promotionItem.attributes.PromoCode}
-              </h5>
-              <a href={promotionItem.attributes.website} target="_blank">
-                przejdź na stronę
-              </a>
-            </PromoCode>
-            {isCopied && <span>Skopiowano kod promocyjny!</span>}
-            <p>Data dodania: {promotionItem.attributes.date}</p>
+                <Alert onClose={() => setIsCopied(false)}>Skopiowano kod</Alert>
+              </StyledSnackbar>
+            </div>
+            <p className="date">
+              Data dodania: {promotionItem.attributes.date}
+            </p>
           </ProductContent>
         </ContainerProduct>
       ) : (
