@@ -3,6 +3,7 @@ import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 
 export const StyledFooter = styled('Footer')(({ theme }) => ({
   width: '100%',
+  padding: '20px 0',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
