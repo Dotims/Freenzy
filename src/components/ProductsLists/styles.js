@@ -36,7 +36,7 @@ export const StyledProduct = styled(Link)(({ theme }) => ({
   borderRadius: "15px",
   textDecoration: "none",
   transition: "0.2s",
-  minHeight: "350px",
+  minHeight: 477,
   display: "flex",
   flexDirection: "column",
 
