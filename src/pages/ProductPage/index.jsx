@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { useLocation, useParams } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { useLocation, useParams } from "react-router-dom";
 import {
   StyledProcuctItem,
   WrapperProductImg,
@@ -8,9 +8,9 @@ import {
   ProductContent,
   ProductDetails,
   PromoCode,
-} from './styles';
-import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
-import 'react-loading-skeleton/dist/skeleton.css';
+} from "./styles";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 export const ProductPage = ({ category }) => {
   const { id } = useParams();
@@ -29,7 +29,7 @@ export const ProductPage = ({ category }) => {
     fetchData();
   }, [pageName]);
 
-  console.log('promotionItem: ', promotionItem);
+  console.log("promotionItem: ", promotionItem);
 
   const [isCopied, setIsCopied] = useState(false);
 
@@ -37,7 +37,7 @@ export const ProductPage = ({ category }) => {
     navigator.clipboard
       .writeText(text)
       .then(() => {
-        console.log('Skopiowano do schowka: ', text);
+        console.log("Skopiowano do schowka: ", text);
         setIsCopied(true);
 
         // Ukryj komunikat po 3 sekundach
@@ -46,7 +46,7 @@ export const ProductPage = ({ category }) => {
         }, 3000);
       })
       .catch((error) => {
-        console.error('Błąd przy kopiowaniu do schowka: ', error);
+        console.error("Błąd przy kopiowaniu do schowka: ", error);
       });
   };
 
@@ -76,7 +76,7 @@ export const ProductPage = ({ category }) => {
               >
                 {promotionItem.attributes.PromoCode}
               </h5>
-              <a href={promotionItem.attributes.website} target='_blank'>
+              <a href={promotionItem.attributes.website} target="_blank">
                 przejdź na stronę
               </a>
             </PromoCode>
@@ -86,13 +86,13 @@ export const ProductPage = ({ category }) => {
         </ContainerProduct>
       ) : (
         <ContainerProduct>
-          <SkeletonTheme baseColor='#ffffff' highlightColor='#e2e2e2'>
-            <Skeleton containerClassName='product-content-skeleton' />
+          <SkeletonTheme baseColor="#ffffff" highlightColor="#e2e2e2">
+            <Skeleton containerClassName="product-content-skeleton" />
+            <Skeleton
+              containerClassName="product-content-skeleton-text"
+              count={3}
+            />
           </SkeletonTheme>
-          <Skeleton
-            containerClassName='product-content-skeleton-text'
-            count={3}
-          />
         </ContainerProduct>
       )}
     </StyledProcuctItem>

@@ -1,5 +1,15 @@
-import React from 'react';
+import React from "react";
+import { StyledLandingContainer } from "./styles";
+import { HeroSection } from "./HeroSection";
+import { BenefitsSection } from "./BenefitsSection";
+import { LastProductsSection } from "./LastProductsSection";
 
 export const Landing = () => {
-  return <div>strona glowna</div>;
+  return (
+    <StyledLandingContainer>
+      <HeroSection />
+      <BenefitsSection />
+      <LastProductsSection />
+    </StyledLandingContainer>
+  );
 };

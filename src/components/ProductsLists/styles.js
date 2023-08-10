@@ -1,88 +1,106 @@
-import { styled } from '@mui/material/styles';
-import { Link } from 'react-router-dom';
+import { styled } from "@mui/material/styles";
+import { Link } from "react-router-dom";
 
-export const StyledProductsWrapper = styled('main')(({ theme }) => ({
-  width: '90%',
-  margin: '150px auto',
-  maxWidth: '1400px',
-
-  // border: '1px solid black',
-  [theme.breakpoints.up('md')]: {},
-  [theme.breakpoints.up('lg')]: {},
+export const StyledProductsWrapper = styled("main")(({ theme }) => ({
+  width: "90%",
+  margin: "150px auto",
+  maxWidth: "1400px",
+  [theme.breakpoints.up("md")]: {},
+  [theme.breakpoints.up("lg")]: {},
 }));
 
-export const ProductsBox = styled('section')(({ theme }) => ({
-  display: 'grid',
-  gridTemplateColumns: '1fr',
-  gap: '25px',
-  [theme.breakpoints.up('md')]: {
-    gridTemplateColumns: 'repeat(2, 1fr)',
+export const ProductsBox = styled("section")(({ theme }) => ({
+  display: "grid",
+  gridTemplateColumns: "1fr",
+  justifyItems: "center",
+  gap: "25px",
+  [theme.breakpoints.up("md")]: {
+    gridTemplateColumns: "repeat(2, 1fr)",
   },
-  [theme.breakpoints.up('lg')]: {
-    gridTemplateColumns: 'repeat(3, 1fr)',
+  [theme.breakpoints.up("lg")]: {
+    gridTemplateColumns: "repeat(3, 1fr)",
   },
-  [theme.breakpoints.up('xl')]: {
-    gridTemplateColumns: 'repeat(4, 1fr)',
+  [theme.breakpoints.up("xl")]: {
+    gridTemplateColumns: "repeat(4, 1fr)",
   },
 }));
 
 export const StyledProduct = styled(Link)(({ theme }) => ({
-  overflow: 'hidden',
-  width: '100%',
-  background: 'rgba(255, 255, 255, 0.5)',
-  boxShadow: '0 6px 28px 0 rgba(31, 38, 135, 0.37)',
-  backdropFilter: 'blur(9px)',
-  webkitBackdropFilter: 'blur(9px)',
-  borderRadius: '10px',
-  textDecoration: 'none',
-  transition: '0.2s',
-  minHeight: '350px',
-  color: 'black',
-  '&:hover': {
-    cursor: 'pointer',
-    transform: 'translateY(-5px)',
+  overflow: "hidden",
+  width: "100%",
+  maxWidth: 450,
+  background: "rgba(255, 255, 255, 0.5)",
+  boxShadow: "0 6px 28px 0 rgba(31, 38, 135, 0.37)",
+  backdropFilter: "blur(9px)",
+  webkitBackdropFilter: "blur(9px)",
+  borderRadius: "15px",
+  textDecoration: "none",
+  transition: "0.2s",
+  minHeight: "350px",
+  display: "flex",
+  flexDirection: "column",
+
+  color: "black",
+  "&:hover": {
+    cursor: "pointer",
+    transform: "translateY(-5px)",
   },
-  '& section': {
-    padding: '15px',
+  "& section": {
+    flex: 1,
+    padding: "25px",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
   },
 
-  '& img': {
-    width: '100%',
-    objectFit: 'cover',
-    height: 250,
+  "& img": {
+    width: "100%",
+    objectFit: "cover",
+    height: 200,
   },
-  '& h2': {
-    textAlign: 'center',
-    fontsize: '20px',
+  "& h2": {
+    textAlign: "center",
+    fontSize: "18px",
   },
-  '& h3': {
-    fontsize: '20px',
+  "& a": {
+    display: "flex",
+    marginLeft: "auto",
+    marginRight: "auto",
+    fontweight: "800",
+    width: 180,
+    textAlign: "center",
+    color: "white",
+    background: "#ff3838",
+    padding: "13px",
+    borderRadius: "15px",
+    alignItems: "center",
+    justifyContent: "center",
   },
-  '& span': {
-    display: 'flex',
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    fontweight: '800',
-    width: '70%',
-    textAlign: 'center',
-    color: 'white',
-    background: '#ff3838',
-    padding: '13px',
-    borderRadius: '15px',
-    alignItems: 'center',
-    justifyContent: 'center',
+  [theme.breakpoints.up("md")]: {
+    "& img": {
+      height: 200,
+    },
+    "& h2": {
+      textAlign: "center",
+      fontSize: "20px",
+    },
+  },
+  [theme.breakpoints.up("xl")]: {
+    "& img": {
+      height: 250,
+    },
   },
 }));
 
-export const StyledPrice = styled('div')(({ theme }) => ({
-  display: 'flex',
-  padding: '15px 0',
-  alignItems: 'center',
-  justifyContent: 'center',
-  '& s': {
-    marginRight: '15px',
-    fontWeight: '700',
-    fontSize: '19px',
+export const StyledPrice = styled("div")(({ theme }) => ({
+  display: "flex",
+  padding: "15px 0",
+  alignItems: "center",
+  justifyContent: "center",
+  "& s": {
+    marginRight: "15px",
+    fontWeight: "700",
+    fontSize: "19px",
   },
-  '& h3': {},
+  "& h3": {},
 }));

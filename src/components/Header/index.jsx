@@ -24,10 +24,9 @@ import {
   StyledNavItems,
   StyledNavIcons,
   StyledBoxSelect,
-  StyledWrapperHeader,
 } from './styles';
 import Badge from '@mui/material/Badge';
-import logo from '../../images/freenzy.svg';
+
 import { Link } from 'react-router-dom';
 
 export const Header = () => {
@@ -62,25 +61,23 @@ export const Header = () => {
     <Box sx={{ flexGrow: 1 }}>
       {/* <StyledHeader> */}
       <StyledAppBar className='dsa'>
-        <StyledWrapperHeader>
-          <StyledLogoWrapper to='/'>
-            <StyledLogo src={logo} alt='' />
-          </StyledLogoWrapper>
-          <StyledNavItems>
-            <StyledNavIcons>
-              <NavWrapper />
-            </StyledNavIcons>
-            <StyledSearch>
-              <StyledSearchIconWrapper>
-                <SearchIcon />
-              </StyledSearchIconWrapper>
-              <StyledInputBase
-                placeholder='Wyszukaj produktu...'
-                inputProps={{ 'aria-label': 'search' }}
-              />
-            </StyledSearch>
-          </StyledNavItems>
-        </StyledWrapperHeader>
+        <StyledLogoWrapper to='/'>
+          <StyledLogo src={''} alt='' />
+        </StyledLogoWrapper>
+        <StyledNavItems>
+          <StyledNavIcons>
+            <NavWrapper />
+          </StyledNavIcons>
+          <StyledSearch>
+            <StyledSearchIconWrapper>
+              <SearchIcon />
+            </StyledSearchIconWrapper>
+            <StyledInputBase
+              placeholder='Wyszukaj produktu...'
+              inputProps={{ 'aria-label': 'search' }}
+            />
+          </StyledSearch>
+        </StyledNavItems>
       </StyledAppBar>
       {/* </StyledHeader> */}
     </Box>
