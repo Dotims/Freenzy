@@ -10,34 +10,36 @@ import Hamburger from 'hamburger-react';
 
 export const StyledHeader = styled('section')(({ theme }) => ({
   borderRadius: '0 0 15px 15px',
-  width: '100%',
   background: '#ffa502',
   height: 'auto',
 }));
 
 export const StyledAppBar = styled(AppBar)(({ theme }) => ({
-  borderRadius: '0 0 15px 15px',
   background: '#ff3838',
-  width: '100%',
   height: 'auto',
-  boxShadow: 'none',
   position: 'relative',
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'space-between',
-  alignItems: 'start',
-  margin: 'auto',
+  width: '100%',
   padding: 10,
   [theme.breakpoints.up('md')]: {
-    width: '100%',
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
     flexWrap: 'nowrap',
   },
+}));
 
-  [theme.breakpoints.up('xl')]: {
+export const StyledWrapperHeader = styled('section')(({ theme }) => ({
+  width: '100%',
+  display: 'flex',
+  justifyContent: 'center',
+  position: 'relative',
+  flexDirection: 'column',
+  [theme.breakpoints.up('md')]: {
     width: '100%',
+    flexDirection: 'row',
+  },
+  [theme.breakpoints.up('lg')]: {
+    width: '80%',
   },
 }));
 
