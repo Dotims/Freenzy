@@ -12,30 +12,36 @@ export const Footer = () => {
     <StyledFooter>
       <StyledLinks>
         <StyledContactWrapper>
-          <h3>Kontakt</h3>
-          <p>
-            W razie jakichkolwiek pytań lub potrzeby pomocy zachęcamy do
-            kontaktu drogą mailową. Jesteśmy tutaj, aby odpowiedzieć na Twoje
-            zapytania i służyć wsparciem.
-          </p>
-          <EmailWrapper>
-            <StyledAlternateEmailIcon />
-            <div>
-              <h5>Email:</h5>
-              <a href="mailto:hello@freenzy.com">hello@freenzy.com</a>
-            </div>
-          </EmailWrapper>
+          <div>
+            <h3>Kontakt</h3>
+            <p>
+              W razie jakichkolwiek pytań lub potrzeby pomocy zachęcamy do
+              kontaktu drogą mailową. Jesteśmy tutaj, aby odpowiedzieć na Twoje
+              zapytania i służyć wsparciem.
+            </p>
+            <EmailWrapper>
+              <StyledAlternateEmailIcon />
+              <div>
+                <h5>Email:</h5>
+                <a href="mailto:hello@freenzy.com">hello@freenzy.com</a>
+              </div>
+            </EmailWrapper>
+          </div>
         </StyledContactWrapper>
         <StyledContactWrapper>
-          <h3>Regulamin</h3>
-          <Link to="/privacy-policy">Polityka Prywatności</Link>
-          <Link to="/regulations">Regulamin strony</Link>
+          <div>
+            <h3>Linki</h3>
+            <Link to="/privacy-policy">Polityka Prywatności</Link>
+            <Link to="/regulations">Regulamin</Link>
+          </div>
         </StyledContactWrapper>
         <StyledContactWrapper>
-          <h3>Oferty</h3>
-          <Link to="/">Strona główna</Link>
-          <a href="">Odzież</a>
-          <a href="">Elektronika</a>
+          <div>
+            <h3>Oferty</h3>
+            <Link to="/">Strona główna</Link>
+            <a href="">Odzież</a>
+            <a href="">Elektronika</a>
+          </div>
         </StyledContactWrapper>
       </StyledLinks>
       <p>StreetRage © 2023</p>
