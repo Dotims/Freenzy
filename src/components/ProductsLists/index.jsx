@@ -28,6 +28,7 @@ export const ProductsList = ({ category }) => {
 
   return (
     <StyledProductsWrapper>
+      <h2>Produkty</h2>
       <ProductsBox>
         {promotionItems.length ? (
           promotionItems.map((item, index) => {
@@ -53,33 +54,29 @@ export const ProductsList = ({ category }) => {
           })
         ) : (
           <>
-            <StyledProduct>
-              <SkeletonTheme baseColor="#ffffff" highlightColor="#e2e2e2">
+            <SkeletonTheme baseColor="#ffffff" highlightColor="#e2e2e2">
+              <StyledProduct sx={{ height: 377, justifyContent: "start" }}>
                 <Skeleton containerClassName="product-card-skeleton" />
                 <Skeleton
-                  containerClassName="product-content-skeleton-text"
+                  containerClassName="product-card-skeleton-text"
                   count={2}
                 />
-              </SkeletonTheme>
-            </StyledProduct>
-            <StyledProduct>
-              <SkeletonTheme baseColor="#ffffff" highlightColor="#e2e2e2">
+              </StyledProduct>
+              <StyledProduct sx={{ height: 377, justifyContent: "start" }}>
                 <Skeleton containerClassName="product-card-skeleton" />
                 <Skeleton
-                  containerClassName="product-content-skeleton-text"
+                  containerClassName="product-card-skeleton-text"
                   count={2}
                 />
-              </SkeletonTheme>
-            </StyledProduct>
-            <StyledProduct>
-              <SkeletonTheme baseColor="#ffffff" highlightColor="#e2e2e2">
+              </StyledProduct>
+              <StyledProduct sx={{ height: 377, justifyContent: "start" }}>
                 <Skeleton containerClassName="product-card-skeleton" />
                 <Skeleton
-                  containerClassName="product-content-skeleton-text"
+                  containerClassName="product-card-skeleton-text"
                   count={2}
                 />
-              </SkeletonTheme>
-            </StyledProduct>
+              </StyledProduct>
+            </SkeletonTheme>
           </>
         )}
       </ProductsBox>

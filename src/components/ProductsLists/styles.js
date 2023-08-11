@@ -5,8 +5,35 @@ export const StyledProductsWrapper = styled("main")(({ theme }) => ({
   width: "90%",
   margin: "150px auto",
   maxWidth: "1400px",
-  [theme.breakpoints.up("md")]: {},
-  [theme.breakpoints.up("lg")]: {},
+  "& > h2": {
+    position: "relative",
+    display: "inline-block",
+    marginTop: 0,
+    marginBottom: 30,
+    fontSize: 32,
+    fontWeight: 900,
+    "&::after": {
+      content: "''",
+      bottom: -2,
+      right: -10,
+      width: 100,
+      height: 10,
+      background: "#ff3838",
+      position: "absolute",
+      display: "block",
+      zIndex: -1,
+    },
+  },
+  [theme.breakpoints.up("md")]: {
+    "& > h2": {
+      fontSize: 38,
+    },
+  },
+  [theme.breakpoints.up("lg")]: {
+    "& > h2": {
+      fontSize: 42,
+    },
+  },
 }));
 
 export const ProductsBox = styled("section")(({ theme }) => ({
@@ -36,10 +63,8 @@ export const StyledProduct = styled(Link)(({ theme }) => ({
   borderRadius: "15px",
   textDecoration: "none",
   transition: "0.2s",
-  minHeight: 477,
   display: "flex",
   flexDirection: "column",
-
   color: "black",
   "&:hover": {
     cursor: "pointer",
