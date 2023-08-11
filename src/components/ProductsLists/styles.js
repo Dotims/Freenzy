@@ -39,7 +39,7 @@ export const StyledProductsWrapper = styled("main")(({ theme }) => ({
 export const ProductsBox = styled("section")(({ theme }) => ({
   display: "grid",
   gridTemplateColumns: "1fr",
-  justifyItems: "center",
+  justifyItems: "stretch",
   gap: "25px",
   [theme.breakpoints.up("md")]: {
     gridTemplateColumns: "repeat(2, 1fr)",
@@ -54,8 +54,6 @@ export const ProductsBox = styled("section")(({ theme }) => ({
 
 export const StyledProduct = styled(Link)(({ theme }) => ({
   overflow: "hidden",
-  width: "100%",
-  maxWidth: 450,
   background: "rgba(255, 255, 255, 0.5)",
   boxShadow: "0 6px 28px 0 rgba(31, 38, 135, 0.37)",
   backdropFilter: "blur(9px)",

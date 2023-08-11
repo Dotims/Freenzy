@@ -4,8 +4,8 @@ import {
   StyledLinks,
   StyledAlternateEmailIcon,
   EmailWrapper,
-} from './styles';
-import { Link } from 'react-router-dom';
+} from "./styles";
+import { Link } from "react-router-dom";
 
 export const Footer = () => {
   return (
@@ -22,22 +22,20 @@ export const Footer = () => {
             <StyledAlternateEmailIcon />
             <div>
               <h5>Email:</h5>
-              <a href='mailto:streetragecontact@gmail.com'>
-                streetragecontact@gmail.com
-              </a>
+              <a href="mailto:hello@freenzy.com">hello@freenzy.com</a>
             </div>
           </EmailWrapper>
         </StyledContactWrapper>
         <StyledContactWrapper>
           <h3>Regulamin</h3>
-          <Link to='/privacy-policy'>Polityka Prywatności</Link>
-          <Link to='/regulations'>Regulamin strony</Link>
+          <Link to="/privacy-policy">Polityka Prywatności</Link>
+          <Link to="/regulations">Regulamin strony</Link>
         </StyledContactWrapper>
         <StyledContactWrapper>
           <h3>Oferty</h3>
-          <Link to='/'>Strona główna</Link>
-          <a href=''>Odzież</a>
-          <a href=''>Elektronika</a>
+          <Link to="/">Strona główna</Link>
+          <a href="">Odzież</a>
+          <a href="">Elektronika</a>
         </StyledContactWrapper>
       </StyledLinks>
       <p>StreetRage © 2023</p>

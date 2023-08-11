@@ -14,6 +14,12 @@ export const StyledBackBtn = styled(Link)(({ theme }) => ({
     color: "black",
     fontWeight: 700,
   },
+  "& svg": {
+    transition: "transform 0.2s",
+  },
+  "&:hover svg": {
+    transform: "translateX(-2px)",
+  },
   [theme.breakpoints.up("xl")]: {},
 }));
 

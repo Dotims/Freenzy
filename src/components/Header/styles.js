@@ -43,7 +43,8 @@ export const StyledWrapperHeader = styled("section")(({ theme }) => ({
 }));
 
 export const StyledLogoWrapper = styled(Link)(({ theme }) => ({
-  display: "block",
+  display: "flex",
+  alignItems: "center",
   height: "40px",
   padding: "15px",
   width: "50%",
@@ -113,7 +114,7 @@ export const StyledHamburger = styled(Hamburger)(({ theme }) => ({
 
 export const StyledLogo = styled("img")(({ theme }) => ({
   width: "auto",
-  height: "100%",
+  height: "80%",
   [theme.breakpoints.up("sm")]: {},
 }));
 
@@ -130,7 +131,6 @@ export const BurgerMenu = styled("div")(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",
-  alignItems: "center",
   padding: "50px 0px",
   [theme.breakpoints.up("lg")]: {
     columnGap: 20,
@@ -208,14 +208,12 @@ export const StyledNavItems = styled("div")(({ theme }) => ({
 
 export const StyledNavIcons = styled("div")(({ theme }) => ({
   display: "flex",
-  // flexDirection: 'row-reverse',
-  position: "fixed",
+  position: "absolute",
   justifyContent: "flex-end",
   right: 15,
   top: 15,
   zIndex: 2,
   [theme.breakpoints.up("md")]: {
-    // position: 'relative',
     right: "auto",
     top: "auto",
     flexDirection: "unset",
@@ -268,26 +266,15 @@ export const HamburgerBox = styled("div")(({ theme }) => ({
 }));
 
 export const ResponsiveHamb = styled("div")(({ theme }) => ({
-  [theme.breakpoints.up("sm")]: {
-    display: "flex",
-  },
+  display: "flex",
   [theme.breakpoints.up("lg")]: {
     display: "none",
   },
 }));
 
-export const StyledBox = styled(Box)({
-  zIndex: 999,
-});
+export const StyledBox = styled(Box)({});
+
 export const StyledBoxSelect = styled(Box)({
   height: "10px",
   position: "absolute",
 });
-
-// export const StyledHamburger = styled(Hamburger)({
-//   border: '2px solid red !important',
-//   display: 'none',
-//   '@media (max-width: 640px)': {
-//     display: 'flex',
-//   },
-// });

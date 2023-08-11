@@ -19,7 +19,7 @@ export const LastProductsSection = () => {
                   <h3>asd zł</h3>
                 </StyledPrice>
               </div>
-              <span>Sprawdź okazję</span>
+              <a>Sprawdź okazję</a>
             </section>
           </StyledProduct>
         ))}
