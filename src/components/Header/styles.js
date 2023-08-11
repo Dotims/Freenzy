@@ -54,6 +54,7 @@ export const StyledLogoWrapper = styled(Link)(({ theme }) => ({
 }));
 
 export const StyledSearch = styled("div")(({ theme }) => ({
+  position: "relative",
   background: "white",
   borderRadius: "10px",
   border: "1px solid rgba(255, 255, 255, 0.18)",
@@ -63,15 +64,18 @@ export const StyledSearch = styled("div")(({ theme }) => ({
   display: "flex",
   width: "100%",
   height: 40,
-  position: "relataive",
   zIndex: 1,
+  [theme.breakpoints.up("md")]: {
+    maxWidth: "450px",
+  },
   [theme.breakpoints.up("lg")]: {
     width: "35%",
   },
 }));
 
 export const StyledSearchIconWrapper = styled("div")(({ theme }) => ({
-  padding: theme.spacing(0, 2),
+  left: 15,
+  position: "absolute",
   height: "100%",
   pointerEvents: "none",
   display: "flex",
@@ -80,6 +84,8 @@ export const StyledSearchIconWrapper = styled("div")(({ theme }) => ({
 }));
 
 export const StyledInputBase = styled(InputBase)(({ theme }) => ({
+  width: "100%",
+  marginLeft: 45,
   "& .MuiInputBase-input": {
     width: "100%",
     fontSize: "15px",
@@ -197,16 +203,14 @@ export const StyledNavItems = styled("div")(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   flexDirection: "row-reverse",
-  width: "100%",
+  flex: 1,
   [theme.breakpoints.up("md")]: {
     flexDirection: "row-reverse",
-  },
-  [theme.breakpoints.up("lg")]: {
     justifyContent: "space-between",
   },
 }));
 
-export const StyledNavIcons = styled("div")(({ theme }) => ({
+export const StyledNavigation = styled("div")(({ theme }) => ({
   display: "flex",
   position: "absolute",
   justifyContent: "flex-end",
@@ -217,14 +221,16 @@ export const StyledNavIcons = styled("div")(({ theme }) => ({
     right: "auto",
     top: "auto",
     flexDirection: "unset",
-    width: "100%",
+    width: "40%",
   },
   [theme.breakpoints.up("md")]: {
     position: "relative",
     right: "auto",
     top: "auto",
     flexDirection: "unset",
-    width: "100%",
+  },
+  [theme.breakpoints.up("lg")]: {
+    width: "65%",
   },
 }));
 
@@ -240,10 +246,10 @@ export const NavBox = styled("nav")(({ isOpen }) => ({ theme }) => ({
   top: -20,
   right: 0,
   width: "250px",
-  transition: "0.3s",
+  transition: "transform 0.3s",
   [theme.breakpoints.up("md")]: {
     width: "100%",
-    width: "450px",
+    width: "350px",
   },
   [theme.breakpoints.up("lg")]: {
     top: "auto",

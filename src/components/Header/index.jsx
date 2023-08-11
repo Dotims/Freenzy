@@ -24,6 +24,7 @@ import {
   StyledNavItems,
   StyledNavIcons,
   StyledBoxSelect,
+  StyledNavigation,
 } from "./styles";
 import Badge from "@mui/material/Badge";
 
@@ -38,9 +39,9 @@ export const Header = () => {
           <StyledLogo src={"/images/freenzy.svg"} alt="" />
         </StyledLogoWrapper>
         <StyledNavItems>
-          <StyledNavIcons>
+          <StyledNavigation>
             <NavWrapper />
-          </StyledNavIcons>
+          </StyledNavigation>
           <StyledSearch>
             <StyledSearchIconWrapper>
               <SearchIcon />
