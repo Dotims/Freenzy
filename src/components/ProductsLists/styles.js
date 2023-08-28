@@ -85,7 +85,7 @@ export const StyledProduct = styled(Link)(({ theme }) => ({
     textAlign: "center",
     fontSize: "18px",
   },
-  "& a": {
+  "& .product-item-action": {
     display: "flex",
     marginLeft: "auto",
     marginRight: "auto",

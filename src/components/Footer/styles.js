@@ -1,7 +1,7 @@
 import { styled } from "@mui/material/styles";
 import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
 
-export const StyledFooter = styled("Footer")(({ theme }) => ({
+export const StyledFooter = styled("footer")(({ theme }) => ({
   width: "100%",
   padding: "20px 0",
   display: "flex",

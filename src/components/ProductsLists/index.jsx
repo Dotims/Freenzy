@@ -7,31 +7,19 @@ import {
 } from "./styles";
 import { useLocation } from "react-router-dom";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import { useGetProductsQuery } from "../../hooks/useGetProductsQuery";
 
 export const ProductsList = ({ category }) => {
-  const [promotionItems, setPromotionItems] = useState([]);
   const pageName = useLocation().pathname.split("/")[1]; // for example: path: /outfits
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const data = await fetch(
-        `http://localhost:1337/api/${category}/?populate=%2A`
-      );
-      const res = await data.json();
-      setPromotionItems(res.data);
-    };
-
-    fetchData();
-  }, [pageName]);
-
-  console.log(promotionItems);
+  const productsQuery = useGetProductsQuery(category);
 
   return (
     <StyledProductsWrapper>
       <h2>Produkty</h2>
       <ProductsBox>
-        {promotionItems.length ? (
-          promotionItems.map((item, index) => {
+        {productsQuery.isSuccess ? (
+          productsQuery.data.map((item, index) => {
             return (
               <StyledProduct to={`/${pageName}/produkt/${item.id}`} key={index}>
                 {item.attributes.thumbnail.data && (
@@ -47,7 +35,7 @@ export const ProductsList = ({ category }) => {
                       <h3>{item.attributes.discount} zł</h3>
                     </StyledPrice>
                   </div>
-                  <a>Sprawdź okazję</a>
+                  <span className="product-item-action">Sprawdź okazję</span>
                 </section>
               </StyledProduct>
             );

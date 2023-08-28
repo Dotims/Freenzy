@@ -11,7 +11,7 @@ export const HeroSection = () => {
     <StyledHeroSection>
       <StyledHeroContent>
         <h3>Witamy w Freenzy!</h3>
-        <div class="stack" style={{ "--stacks": 3 }}>
+        <div className="stack" style={{ "--stacks": 3 }}>
           <span style={{ "--index": 0 }}>Topowe marki w niskich cenach</span>
           <span style={{ "--index": 1 }}>Topowe marki w niskich cenach</span>
           <span style={{ "--index": 2 }}>Topowe marki w niskich cenach</span>

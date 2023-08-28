@@ -7,14 +7,19 @@
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.14.3",
     "@mui/material": "^5.14.3",
+    "@tanstack/query-sync-storage-persister": "^4.32.6",
+    "@tanstack/react-query": "^4.32.6",
+    "@tanstack/react-query-persist-client": "^4.32.6",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.4.0",
     "hamburger-react": "^2.5.0",
     "react": "^18.2.0",
     "react-burger-menu": "^3.0.9",
     "react-dom": "^18.2.0",
     "react-loading-skeleton": "^3.3.1",
+    "react-query": "^3.39.3",
     "react-router-dom": "^6.14.2",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
@@ -44,6 +49,7 @@
     ]
   },
   "devDependencies": {
+    "@tanstack/react-query-devtools": "^4.32.6",
     "eslint-config-react-app": "^7.0.1",
     "node-sass": "^9.0.0"
   }

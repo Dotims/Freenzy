@@ -39,8 +39,8 @@ export const Footer = () => {
           <div>
             <h3>Oferty</h3>
             <Link to="/">Strona główna</Link>
-            <a href="">Odzież</a>
-            <a href="">Elektronika</a>
+            <Link to="">Odzież</Link>
+            <Link to="">Elektronika</Link>
           </div>
         </StyledContactWrapper>
       </StyledLinks>
