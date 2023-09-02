@@ -4,19 +4,24 @@ import SearchIcon from "@mui/icons-material/Search";
 import NavWrapper from "./navResp";
 import {
   StyledAppBar,
-  StyledInputBase,
   StyledLogo,
   StyledSearch,
   StyledSearchIconWrapper,
   StyledLogoWrapper,
   StyledNavItems,
   StyledNavigation,
+  StyledInput,
 } from "./styles";
+import { useSearch } from "../../hooks/useSearch";
+import { useLocation } from "react-router-dom";
 
 export const Header = () => {
+  const { setSearchPhrase } = useSearch();
+  const { pathname } = useLocation();
+
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <StyledAppBar className="dsa">
+      <StyledAppBar>
         <StyledLogoWrapper to="/">
           <StyledLogo src={"/images/freenzy.svg"} alt="" />
         </StyledLogoWrapper>
@@ -24,15 +29,18 @@ export const Header = () => {
           <StyledNavigation>
             <NavWrapper />
           </StyledNavigation>
-          <StyledSearch>
-            <StyledSearchIconWrapper>
-              <SearchIcon />
-            </StyledSearchIconWrapper>
-            <StyledInputBase
-              placeholder="Wyszukaj produktu..."
-              inputProps={{ "aria-label": "search" }}
-            />
-          </StyledSearch>
+          {(pathname === "/odziez" || pathname === "/elektronika") && (
+            <StyledSearch>
+              <StyledSearchIconWrapper>
+                <SearchIcon />
+              </StyledSearchIconWrapper>
+              <StyledInput
+                placeholder="Wyszukaj produktu..."
+                inputProps={{ "aria-label": "search" }}
+                onChange={(e) => setSearchPhrase(e.target.value)}
+              />
+            </StyledSearch>
+          )}
         </StyledNavItems>
       </StyledAppBar>
     </Box>

@@ -12,6 +12,10 @@ body {
   min-height: 100vh;
 }
 
+input:focus {
+  outline: none;
+}
+
 h1,
 h2,
 h3,

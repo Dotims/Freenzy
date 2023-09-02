@@ -57,6 +57,7 @@ export const StyledSearch = styled("div")(({ theme }) => ({
   position: "relative",
   background: "white",
   borderRadius: "10px",
+  overflow: "hidden",
   border: "1px solid rgba(255, 255, 255, 0.18)",
   color: "black",
   marginRight: theme.spacing(2),
@@ -83,9 +84,10 @@ export const StyledSearchIconWrapper = styled("div")(({ theme }) => ({
   justifyContent: "center",
 }));
 
-export const StyledInputBase = styled(InputBase)(({ theme }) => ({
+export const StyledInput = styled("input")(({ theme }) => ({
   width: "100%",
   marginLeft: 45,
+  border: "none",
   "& .MuiInputBase-input": {
     width: "100%",
     fontSize: "15px",
