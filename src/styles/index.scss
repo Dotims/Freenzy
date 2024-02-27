@@ -8,8 +8,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   box-sizing: border-box !important;
-  font-family: "Roboto", sans-serif;
+  // font-family: "Roboto", sans-serif;
   min-height: 100vh;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  
 }
 
 input:focus {

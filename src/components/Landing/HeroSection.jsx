@@ -20,7 +20,7 @@ export const HeroSection = () => {
           Odkrywaj topowe marki w przystępnych <br />
           cenach i zaoszczędź do 80%
         </p>
-        <Link to="">Przejdź do ofert</Link>
+        <Link to="/odziez">Przejdź do ofert</Link>
       </StyledHeroContent>
       <StyledHeroImageWrapper>
         <img src="images/hero_image.png" alt="" />
