@@ -14,11 +14,11 @@ export const StyledHeader = styled("section")(({ theme }) => ({
 }));
 
 export const StyledAppBar = styled(AppBar)(({ theme }) => ({
-  background: "#ff3838",
+  background: "#DB2134",
   height: "auto",
   position: "relative",
   width: "100%",
-  padding: 10,
+  padding: 0,
   [theme.breakpoints.up("md")]: {
     flexDirection: "row",
     justifyContent: "space-around",

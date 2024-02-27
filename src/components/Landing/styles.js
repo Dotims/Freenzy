@@ -15,7 +15,7 @@ export const StyledHeroSection = styled("div")(({ theme }) => ({
   [theme.breakpoints.up("md")]: {},
   [theme.breakpoints.up("lg")]: {
     height: "450px",
-    background: "#ff3838",
+    background: "#DB2134",
     flexDirection: "row",
   },
 }));
@@ -42,7 +42,7 @@ export const StyledHeroContent = styled("div")(({ theme }) => ({
     color: "white",
     fontWeight: 700,
     display: "inline-block",
-    background: "#ff3838",
+    background: "#DB2134",
   },
   [theme.breakpoints.up("md")]: {
     "& > h3": {

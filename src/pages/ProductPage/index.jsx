@@ -64,7 +64,7 @@ export const ProductPage = ({ category }) => {
           <StyledProductInner>
             <WrapperProductImg>
               <StyledImgProduct
-                src={`http://localhost:1337${promotionItem.attributes.thumbnail.data.attributes.url}`}
+                src={`http://localhost:1337${promotionItem.attributes.thumbnail.data?.attributes.url}`}
               />
             </WrapperProductImg>
             <ProductContent>

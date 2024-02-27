@@ -14,7 +14,6 @@ export const ProductsList = ({ category }) => {
   const pageName = useLocation().pathname.split("/")[1]; // for example: path: /outfits
 
   const productsQuery = useGetProductsQuery(category);
-
   const { searchPhrase } = useSearch();
 
   return (
@@ -32,6 +31,7 @@ export const ProductsList = ({ category }) => {
               );
             })
             .map((item, index) => {
+              console.log('dsds', item);
               return (
                 <StyledProduct
                   to={`/${pageName}/produkt/${item.id}`}
@@ -39,7 +39,7 @@ export const ProductsList = ({ category }) => {
                 >
                   {item.attributes.thumbnail.data && (
                     <img
-                      src={`http://localhost:1337${item.attributes.thumbnail.data.attributes.url}`}
+                      src={`http://localhost:1337${item.attributes.thumbnail.data?.attributes.url}`}
                     />
                   )}
                   <section>

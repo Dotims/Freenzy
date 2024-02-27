@@ -5,20 +5,21 @@ import { useGetNewestProductsQuery } from "../../hooks/useGetNewestProductsQuery
 
 export const LastProductsSection = () => {
   const lastProductsQuery = useGetNewestProductsQuery();
-  console.log(lastProductsQuery);
+  
   return (
     <StyledLastProductsWrapper>
       <h3>Sprawdź oferty</h3>
       <h2>Ostatnio dodane oferty</h2>
       <StyledLastProducts>
         {lastProductsQuery.isSuccess &&
-          lastProductsQuery.data.map((item, index) => (
+          lastProductsQuery.data?.map((item, index) => {
+            return (
             <StyledProduct
               to={`/${item.category}/produkt/${item.id}`}
               key={index}
             >
               <img
-                src={`http://localhost:1337${item.attributes.thumbnail.data.attributes.url}`}
+                src={`http://localhost:1337${item.attributes.thumbnail.data?.attributes.url}`}
               />
               <section>
                 <div>
@@ -31,7 +32,7 @@ export const LastProductsSection = () => {
                 <span className="product-item-action">Sprawdź okazję</span>
               </section>
             </StyledProduct>
-          ))}
+          )})}
       </StyledLastProducts>
     </StyledLastProductsWrapper>
   );

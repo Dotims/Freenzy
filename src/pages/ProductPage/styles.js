@@ -133,7 +133,7 @@ export const PromoCode = styled("div")(({ theme }) => ({
     justifyContent: "center",
   },
   "& > a": {
-    background: "#ff3838",
+    background: "#DB2134",
     color: "white",
     textDecoration: "none",
     border: "none",
